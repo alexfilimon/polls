@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ question.question_text }}</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+</head>
+<body>
+	<div class="wrap">
+		<div class="container">
+
+
+			<div class="vote-wrap">
+				<h1>{{ question.question_text }}</h1>
+
+        {% for choice in question.choice_set.all %}
+  				<div class="choice">
+  					<div class="choice__name">{{ choice.choice_text }}</div>
+  					<div class="choice__chart">
+  						<div class="choice__chart-part"></div>
+  						<div class="choice__count">{{ choice.votes }}</div>
+  					</div>
+  					<div class="choice__persents"><span class="value"></span>%</div>
+  				</div>
+        {% endfor %}
+
+				<div class="vote__count">Проголосовало <span class="value">{{ count_votes }}</span> человек</div>
+			</div>
+
+      <a href="{% url 'polls:detail' question.id %}">Проголосовать заново?</a>
+
+		</div>
+	</div>
+
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+	<script src="{% static 'polls/js/common.js' %}"></script>
+</body>
+</html>

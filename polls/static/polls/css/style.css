@@ -1,0 +1,65 @@
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+h1{
+	color: #42648b;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.vote-wrap{
+	width: 510px;
+	border: 1px solid rgba(0,20,51,.12);
+	border-radius: 2px;
+	padding: 10px 20px;
+}
+.choice{
+	margin-top: 10px;
+}
+.choice__name{
+	margin-bottom: 3px;
+	font-size: 15px;
+}
+.choice__chart{
+	width: 428px;
+	height: 20px;
+	color: #55677d;
+	background-color: #f2f4f7;
+	font-size: 11.5px;
+	text-align: center;
+	border-radius: 2px;
+	display: inline-block;
+	position: relative;
+}
+.choice__chart-part{
+	position: absolute;
+	height: 20px;
+	top: 0;
+	left: 0;
+	width: 0;
+	border-radius: 2px;
+	background-color: #DAE1E8;
+	transition: all .5s ease;
+}
+.choice__count{
+	padding-top: 3px;
+	position: absolute;
+	height: 20px;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.choice__persents{
+	color: rgb(34, 34, 34);
+	font-size: 14px;
+	font-weight: bold;
+	display: inline-block;
+	width: 78px;
+	text-align: center;
+}
+.vote__count{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
