@@ -1,12 +1,11 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
 from .models import Choice, Question
 
-# Create your views here.
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -33,7 +32,6 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 
-
     def get_context_data(self, **kwargs):
         context = super(ResultsView, self).get_context_data(**kwargs)
         count_votes = 0
@@ -42,6 +40,7 @@ class ResultsView(generic.DetailView):
         context['count_votes'] = count_votes
 
         return context
+
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)

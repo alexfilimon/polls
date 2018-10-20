@@ -2,7 +2,7 @@ import datetime
 
 from django.test import TestCase
 from django.utils import timezone
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from .models import Question
 
@@ -18,6 +18,7 @@ def create_question(question_text, days):
     time = timezone.now() + datetime.timedelta(days=days)
     return Question.objects.create(question_text=question_text,
                                    pub_date=time)
+
 
 class QuestionViewTests(TestCase):
     def test_index_view_with_no_questions(self):
@@ -77,6 +78,7 @@ class QuestionViewTests(TestCase):
             ['<Question: Past question 2.>', '<Question: Past question 1.>']
         )
 
+
 class QuestionIndexDetailTests(TestCase):
     def test_detail_view_with_a_future_question(self):
         """
@@ -100,6 +102,7 @@ class QuestionIndexDetailTests(TestCase):
                                    args=(past_question.id,)))
         self.assertContains(response, past_question.question_text,
                             status_code=200)
+
 
 class QuestionMethodTests(TestCase):
 
